@@ -1,0 +1,4 @@
+interface:
+  display_name: "技术博客写作"
+  short_description: "基于可靠资料撰写可信、自然、图文结合且可直接发布的技术文章"
+  default_prompt: "使用 $technical-blog-writer 把这个主题或资料写成可直接发布的技术文章。"
