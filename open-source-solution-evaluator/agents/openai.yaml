@@ -1,0 +1,4 @@
+interface:
+  display_name: "开源解决方案实践评估"
+  short_description: "评估开源项目是否值得产品化为可复制的一键部署解决方案"
+  default_prompt: "使用 $open-source-solution-evaluator 评估这个开源项目是否值得制作成解决方案实践、SAC 或一键部署方案。"
