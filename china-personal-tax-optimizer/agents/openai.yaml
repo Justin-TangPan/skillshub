@@ -1,0 +1,4 @@
+interface:
+  display_name: "中国个税与加班兑换优化"
+  short_description: "精确逐月模拟中国个人所得税并优化 H 加班、年假兑换策略"
+  default_prompt: "使用 $china-personal-tax-optimizer 根据我的工资、扣除、年假和加班数据，模拟逐月个税并比较兑换策略。"
