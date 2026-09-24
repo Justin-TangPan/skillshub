@@ -6,6 +6,8 @@
 
 ## 使用示例
 
+Codex 显式调用：
+
 ```text
 $china-personal-tax-optimizer 使用默认数据，比较不兑换、每月兑换、12 月集中兑换和智能分月四种策略。
 ```
@@ -14,15 +16,33 @@ $china-personal-tax-optimizer 使用默认数据，比较不兑换、每月兑�
 $china-personal-tax-optimizer 我的标准工资是 25,000 元，绩效 8,000 元，专项附加扣除每月 4,000 元，有 8 天月末周六加班，请生成逐月税额和最优兑换建议。
 ```
 
+Claude Code 中无需 `$` 前缀，直接描述需求（例如“比较不兑换、每月兑换、12 月集中兑换和智能分月四种策略”）即可由模型依据 `SKILL.md` 自动触发。
+
 技能会输出逐月模拟表、年度策略汇总、税档空间、年假补偿对次年税档的影响，并区分税额、税后现金和调休价值。税法、深圳缴费口径及 H 内部规则可能调整，正式决策前应以目标年度官方政策和公司系统为准。
 
 ## 安装
 
-在本仓库根目录执行：
+### Claude Code
+
+全局（个人自用）：
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+cp -R china-personal-tax-optimizer "$HOME/.claude/skills/"
+```
+
+或项目级：
+
+```bash
+mkdir -p <项目>/.claude/skills
+cp -R china-personal-tax-optimizer <项目>/.claude/skills/
+```
+
+### Codex
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R china-personal-tax-optimizer "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-重启 Codex 会话后即可使用。
+重启会话后即可使用。
