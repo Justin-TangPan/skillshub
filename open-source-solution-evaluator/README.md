@@ -1,13 +1,13 @@
-# 开源解决方案实践评估 Skill
+# 解决方案实践价值评估 / 分类 Skill
 
-用于评估公开开源项目是否适合制作成解决方案实践、SAC 或一键部署方案。
+用于把候选项目归类到解决方案实践类型（应用方案 / Skills / 最佳实践，免费试用为附加标签），并给出是否建议建设、预计工作量（人天）与推荐理由。
 
 ## 使用示例
 
 Codex 显式调用：
 
 ```text
-$open-source-solution-evaluator 评估 https://github.com/owner/project 是否值得制作成解决方案实践。
+$open-source-solution-evaluator 请评估 <候选项目> 应归为哪种解决方案实践类型，并给出是否建议建设与预计工作量。
 ```
 
 Claude Code 中无需 `$` 前缀，直接描述需求即可由模型依据 `SKILL.md` 自动触发。

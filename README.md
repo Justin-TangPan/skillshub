@@ -5,8 +5,8 @@
 | Skill | 说明 |
 |---|---|
 | [china-personal-tax-optimizer](./china-personal-tax-optimizer/) | 模拟中国居民个人工资薪金累计预扣税，并比较 H 年假、月末周六及日常加班的兑换策略。 |
-| [technical-blog-writer](./technical-blog-writer/) | 撰写、改写或润色面向开发者与技术决策者的技术博客、产品文章、解决方案文章和教程，含资料核验、叙事设计、配图规划与去 AI 味。 |
-| [open-source-solution-evaluator](./open-source-solution-evaluator/) | 评估开源项目是否值得制作成解决方案实践、SAC 或一键部署方案。 |
+| [technical-blog-writer](./technical-blog-writer/) | 撰写可信、可发布的技术文章，并基于内置 Word 模板交付可复现、可验收的最佳实践文档。 |
+| [open-source-solution-evaluator](./open-source-solution-evaluator/) | 把候选项目归类到解决方案实践类型（应用方案 / Skills / 最佳实践，免费试用为附加标签），并给出是否建议建设、预计工作量（人天）与推荐理由。 |
 | [huawei-cloud-solution-asset-naming](./huawei-cloud-solution-asset-naming/) | 为华为云「解决方案实践」资产判断资产类型与场景分类，并生成中英文名称、URL ID 和产品标签。 |
 
 每个 Skill 的核心规则都在 `SKILL.md`（两套系统共用）；`agents/openai.yaml` 是 Codex 专用的接口定义，Claude Code 会忽略它。

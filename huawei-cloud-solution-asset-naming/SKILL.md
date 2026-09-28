@@ -1,7 +1,8 @@
 ---
 name: huawei-cloud-solution-asset-naming
 description: >
-  维护华为云「解决方案实践」结构化资产表，并为新增资产生成中英文名称、URL ID、场景分类和标签。
+  维护华为云「解决方案实践」结构化资产表，为新增资产生成中英文名称、URL ID、场景分类和标签，
+  并设计 SAC Skills 的“一级场景—二级能力页—产品 Skill Tab”聚合结构。
   Use this skill whenever the user mentions:
   - Huawei Cloud solution asset inventory, site synchronization, naming, classification, or metadata generation
   - Creating or organizing solution practices (解决方案实践) on Huawei Cloud
@@ -51,9 +52,31 @@ python scripts/sync_solution_practices.py 解决方案实践.xlsx --record-json 
 - `最佳实践`：交付物是可按步骤完成的场景实践，包含架构、方法、配置或操作步骤。优先命名为"基于 XXX 构建 XXX""基于 XXX 实现 XXX"，也可使用简洁明确的场景名。
 - `Skills`：交付物是一个或多个 Skill 形成、可在 OfficeAce、码道或 AgentArts 中长期使用的能力。标题直接表达业务能力，默认不出现 OfficeAce、码道、AgentArts、Skill、Skills，也不使用"XX助手""XX专家""XX Agent""XX神器"。
 
+## Skills 聚合页模型
+
+SAC 展示页面与后台 Skill 是两个粒度：
+
+- 一级场景是稳定的用户业务领域，例如`智能运维`。
+- 二级场景是用户要完成的任务，也是一个独立 Skills 详情页，例如`根因分析`、`异常检测`、`资源监控`、`故障处置`。
+- 详情页内按产品设置 Tab，例如`LTS`、`CCE`、`RDS`、`ECS`；每个 Tab 对应一个可独立安装、升级、授权和统计的后台 Skill。
+- 后台 Skill ID 使用`产品-能力`，例如`lts-root-cause-analysis`、`cce-root-cause-analysis`、`rds-root-cause-analysis`。不要把多个产品实现合并成一个后台 Skill。
+
+用户应先按任务找到二级场景，再选择产品实现；不要按云服务为每个同类 Skill 重复创建 SAC 页面。只有当某个实现的目标用户、输入输出、执行流程或核心价值明显不同时，才拆成新的二级场景页。
+
+智能运维 Skills 优先使用以下层级：
+
+| 一级场景 | 二级场景 | Tab 示例 |
+|---|---|---|
+| `智能运维` | `根因分析` | LTS、CCE、RDS、ECS |
+| `智能运维` | `异常检测` | LTS、CCE、RDS |
+| `智能运维` | `资源监控` | ECS、CCE、RDS |
+| `智能运维` | `故障处置` | CCE、ECS、RDS |
+
+这里的 Tab 示例不是封闭枚举；新增产品实现时追加 Tab，不另建页面。
+
 ## 场景分类
 
-以用户最终解决的问题为准，不因使用 AI、Agent 或 Skill 就默认归类为 AI。一级与二级必须使用以下有效组合之一：
+以用户最终解决的问题为准，不因使用 AI、Agent 或 Skill 就默认归类为 AI。Skills 聚合页优先使用上一节定义的业务领域与能力任务；应用方案和最佳实践使用以下有效组合：
 
 | 一级场景 | 二级场景 |
 |---|---|
@@ -89,7 +112,7 @@ python scripts/sync_solution_practices.py 解决方案实践.xlsx --record-json 
 
 ## 输出格式
 
-单条命名请求严格输出以下七个字段，每个字段之间空一行。不要使用代码块、列表或补充说明；没有其他标签时保留冒号后空白。表格维护请求则交付工作簿及同步摘要，不套用此格式。
+应用方案、最佳实践或不含多个实现的单条命名请求，严格输出以下七个字段，每个字段之间空一行。不要使用代码块、列表或补充说明；没有其他标签时保留冒号后空白。表格维护请求则交付工作簿及同步摘要，不套用此格式。
 
 ```text
 方案名或实践名：XXX
@@ -105,4 +128,13 @@ ID编码：xxx-xxx-xxx
 主标签：应用方案 / 最佳实践 / Skills
 
 其他标签：XXX
+```
+
+Skills 聚合页请求在七字段后追加`具体 Skills`，每个产品实现一行，格式为`Tab 名称｜Skill ID｜Skill 名称`。例如：
+
+```text
+具体 Skills：
+LTS｜lts-root-cause-analysis｜LTS 根因分析
+CCE｜cce-root-cause-analysis｜CCE 根因分析
+RDS｜rds-root-cause-analysis｜RDS 根因分析
 ```
