@@ -1,0 +1,4 @@
+interface:
+  display_name: "解决方案实践写作"
+  short_description: "依照内置 Word 模板撰写方案设计、可复现步骤与效果验证完整的实践文档"
+  default_prompt: "使用 $solution-practice-writer 基于这些资料，按内置 Word 模板生成包含方案设计、可复现步骤和效果验证的最佳实践文档。"

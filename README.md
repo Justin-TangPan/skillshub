@@ -5,7 +5,7 @@
 | Skill | 说明 |
 |---|---|
 | [china-personal-tax-optimizer](./china-personal-tax-optimizer/) | 模拟中国居民个人工资薪金累计预扣税，并比较 H 年假、月末周六及日常加班的兑换策略。 |
-| [technical-blog-writer](./technical-blog-writer/) | 撰写可信、可发布的技术文章，并基于内置 Word 模板交付可复现、可验收的最佳实践文档。 |
+| [solution-practice-writer](./solution-practice-writer/) | 撰写可信、可发布的技术文章，并基于内置 Word 模板交付可复现、可验收的最佳实践文档。 |
 | [open-source-solution-evaluator](./open-source-solution-evaluator/) | 把候选项目归类到解决方案实践类型（应用方案 / Skills / 最佳实践，免费试用为附加标签），并给出是否建议建设、预计工作量（人天）与推荐理由。 |
 | [huawei-cloud-solution-asset-naming](./huawei-cloud-solution-asset-naming/) | 为华为云「解决方案实践」资产判断资产类型与场景分类，并生成中英文名称、URL ID 和产品标签。 |
 
@@ -17,14 +17,14 @@
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
-cp -R china-personal-tax-optimizer technical-blog-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming "$HOME/.claude/skills/"
+cp -R china-personal-tax-optimizer solution-practice-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming "$HOME/.claude/skills/"
 ```
 
 项目级：
 
 ```bash
 mkdir -p <项目>/.claude/skills
-cp -R china-personal-tax-optimizer technical-blog-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming <项目>/.claude/skills/
+cp -R china-personal-tax-optimizer solution-practice-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming <项目>/.claude/skills/
 ```
 
 安装后重启 Claude Code 会话生效。无需 `$skill-name` 前缀：直接描述需求，Claude Code 会依据 `SKILL.md` 的 description 自动触发相关 Skill。
@@ -33,7 +33,7 @@ cp -R china-personal-tax-optimizer technical-blog-writer open-source-solution-ev
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R china-personal-tax-optimizer technical-blog-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R china-personal-tax-optimizer solution-practice-writer open-source-solution-evaluator huawei-cloud-solution-asset-naming "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
 重启 Codex 会话后，使用 `$skill-name` 前缀显式调用。
