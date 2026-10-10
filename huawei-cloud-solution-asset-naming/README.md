@@ -24,6 +24,8 @@ $huawei-cloud-solution-asset-naming 帮我梳理 https://github.com/DayuanJiang/
 
 请复制整个目录，不要只复制 `SKILL.md`；该 Skill 依赖 `scripts/sync_solution_practices.py` 和 `解决方案实践.xlsx`。
 
+同步前可加 `--check-links` 检查官网目录和工作簿中的详情链接；无法访问或格式异常时脚本会停止，不写入工作簿。同步摘要会列出新增方案、两站目录顺序冲突、未匹配官网条目、保留的旧行、无效链接和缺少区域的站点。单一表格按中国站顺序排列，无法同时还原两站各自不同的目录顺序。
+
 ### Claude Code
 
 全局（个人自用）：
