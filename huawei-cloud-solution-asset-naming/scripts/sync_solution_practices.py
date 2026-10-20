@@ -99,6 +99,8 @@ def naming_notes(name, main_label="应用方案"):
         notes.append("应用方案名称含“快速部署/一键部署/免费试用”等禁用宣传词")
     if re.search(r"[,，:：;；—–]", name):
         notes.append("名称使用逗号、冒号或破折号，不符合单空格分隔规则")
+    if len(name.strip()) > 20:
+        notes.append("名称超过 20 个字")
     return "；".join(notes)
 
 
