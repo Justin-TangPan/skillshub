@@ -95,8 +95,8 @@ def check_url(url):
 
 def naming_notes(name, main_label="应用方案"):
     notes = []
-    if main_label == "应用方案" and any(word in name for word in ("快速部署", "一键部署", "免费试用")):
-        notes.append("应用方案名称含“快速部署/一键部署/免费试用”等禁用宣传词")
+    if "免费试用" in name:
+        notes.append("名称含“免费试用”等促销词，应放在标签或简介中")
     if re.search(r"[,，:：;；—–]", name):
         notes.append("名称使用逗号、冒号或破折号，不符合单空格分隔规则")
     if len(name.strip()) > 20:
